@@ -39,6 +39,60 @@ function fizzBuzz(num) {
 
 
 
+//узнать количество гласных в строке
+console.log(findVowels('hello')); // 2
+console.log(findVowels('why')); // 0
+
+function findVowels(str) {
+   let count = 0;
+   const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+   for (let char of str.toLowerCase()) {
+      if (vowels.includes(char)) {
+         count += 1;
+      }
+   }
+
+   return count;
+
+}
+
+//анаграмма
+anagram('friend', 'Finder'); //true
+anagram('hello', 'bye'); //false
+
+function buildCharObject(str) {
+   const charObj = {};
+   str = str.toLowerCase().replace(/[^\w]/g);
+   for (let char of str) {
+      charObj[char] = charObj[char] + 1 || 1;
+   }
+
+   return charObj;
+}
+
+function anagram(strA, strB) {
+   const aCharObj = buildCharObject(strA);
+   const bCharObj = buildCharObject(strB);
+
+   if (Object.keys(aCharObj).length !== Object.keys(bCharObj).length) {
+      return false;
+   }
+
+   for (let char in aCharObj) {
+      if (aCharObj[char] !== bCharObj[char]) {
+         return false;
+      }
+   }
+   return true;
+}
+
+
+
+
+// Oneliner
+const anagram2 = (a,b) => [...a.toLowerCase()].sort().toString() === [...b.toLowerCase()].sort().toString();
+
 
 </script>
 

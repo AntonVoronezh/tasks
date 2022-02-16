@@ -16,6 +16,31 @@ function palindrome(str) {
    return str === str.split('').reverse().join('');
 }
 
+<!--fizzBuzz-->
+fizzBuzz(24);
+
+function fizzBuzz(num) {
+   for (let i = 1; i <= num; i++) {
+      if (i % 3 === 0 && i % 5 === 0) {
+         console.log('fizzbuzz');
+      }
+      else if (i % 3 === 0) {
+         console.log('fizz');
+      }
+      else if (i % 5 === 0) {
+         console.log('buzz');
+      }
+      else {
+         console.log(i);
+      }
+   }
+
+}
+
+
+
+
+</script>
 
 </body>
 </html>
